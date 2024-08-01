@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Books</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* Custom styles for three columns */
+        .card {
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 576px) {
+            .col-md-4 {
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+        }
+        #head {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 15vh; /* Optional: Set a height for vertical centering */
+        }
+
+        #head h2 {
+            text-align: center;
+        }
+        .fixed-size-card img {
+        width: 100%;
+        height: 350px;
+        }
+    </style>
+</head>
+
+<body style="background-color:black">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="font-weight: bold;">BookBuddy</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/recommend">Recommend</a>
+          <a class="nav-link" href="/romantic">Romantic</a>
+        <a class="nav-link" href="/horror">Horror</a>
+        <a class="nav-link" href="/about">About Us</a>
+        <a class="nav-link" href="/contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+    <div class="container" id="head">
+        <h2 style="color: white; font-family: 'Lobster', cursive;">Top 15 Romantic Love Story Books</h2>
+    </div>
+    <div class="container" id="romanticBooksContainer" >
+        <div class="col"></div>
+    </div>
+
+    <script>
+        const romanticBooksData = {
+              "romantic_books": [
+                   {
+      "title": "Love in Bloom",
+      "author": "Jane Doe",
+      "description": "A heartwarming tale of love and self-discovery.",
+      "rating": 4.5,
+      "image_url": "{{ url_for('static', filename='img/love&bloom.jpg') }}"
+    },
+    {
+      "title": "Eternal Embrace",
+      "author": "John Smith",
+      "description": "An epic love story that transcends time and space.",
+      "rating": 4.2,
+      "image_url": "{{ url_for('static', filename='img/Eternal_Embrace.jpg') }}"
+    },
+    {
+      "title": "Passionate Hearts",
+      "author": "Emily Johnson",
+      "description": "Passion ignites as two souls find each other in a bustling city.",
+      "rating": 4.7,
+      "image_url": "{{ url_for('static', filename='img/Passionate_Hearts.jpg') }}"
+    },
+    {
+      "title": "Whispers of Love",
+      "author": "Michael Anderson",
+      "description": "A poetic journey through the whispers of love that echo in the night.",
+      "rating": 4.0,
+      "image_url": "{{ url_for('static', filename='img/Whispers_of_Love.jpeg') }}"
+    },
+    {
+      "title": "Forever Yours",
+      "author": "Sarah Williams",
+      "description": "A tale of undying love that withstands the tests of time.",
+      "rating": 4.8,
+      "image_url": "{{ url_for('static', filename='img/Forever_Yours.jpg') }}"
+    },
+    {
+      "title": "The Love Connection",
+      "author": "Robert Turner",
+      "description": "A heartwarming story about the unexpected connections that bind us.",
+      "rating": 4.4,
+      "image_url": "{{ url_for('static', filename='img/The_Love_Connection.jpg') }}"
+    },
+    {
+      "title": "Moonlit Romance",
+      "author": "Lily Martin",
+      "description": "Romance blossoms under the enchanting glow of the moon.",
+      "rating": 4.6,
+      "image_url": "{{ url_for('static', filename='img/Moonlit_Romance.jpg') }}"
+    },
+    {
+      "title": "Enchanted Love",
+      "author": "David Carter",
+      "description": "An enchanting love story that captivates the heart and soul.",
+      "rating": 4.3,
+      "image_url": "{{ url_for('static', filename='img/Enchanted_Love.jpg') }}"
+    },
+    {
+      "title": "Destined Hearts",
+      "author": "Megan Thompson",
+      "description": "Two hearts destined to find each other against all odds.",
+      "rating": 4.9,
+      "image_url": "{{ url_for('static', filename='img/Destined_Hearts.jpeg') }}"
+    },
+    {
+      "title": "Infinite Tenderness",
+      "author": "Daniel Harris",
+      "description": "A journey into the infinite depths of tender love and passion.",
+      "rating": 4.1,
+      "image_url": "{{ url_for('static', filename='img/Infinite_Tenderness.jpg') }}"
+    },
+    {
+      "title": "Sweet Serenade",
+      "author": "Sophie Turner",
+      "description": "A symphony of love expressed through sweet serenades.",
+      "rating": 4.5,
+      "image_url": "{{ url_for('static', filename='img/Sweet_Serenade.jpg') }}"
+    },
+    {
+      "title": "Hearts Entwined",
+      "author": "Benjamin Adams",
+      "description": "A tale of hearts entwined, navigating the complexities of love.",
+      "rating": 4.7,
+      "image_url": "{{ url_for('static', filename='img/Hearts_Entwined.jpg') }}"
+    },
+    {
+      "title": "Love's Awakening",
+      "author": "Olivia Turner",
+      "description": "A captivating journey of love's awakening and self-discovery.",
+      "rating": 4.2,
+      "image_url": "{{ url_for('static', filename='img/Loves_Awakening.jpg') }}"
+    },
+    {
+      "title": "Captivating Romance",
+      "author": "William Carter",
+      "description": "A captivating romance that unfolds amidst picturesque landscapes.",
+      "rating": 4.6,
+      "image_url": "{{ url_for('static', filename='img/Captivating_Romance.jpg') }}"
+    },
+    {
+      "title": "A Love Story",
+      "author": "Emma Roberts",
+      "description": "A timeless love story that transcends generations.",
+      "rating": 4.8,
+      "image_url": "{{ url_for('static', filename='img/A_Love_Story.jpg') }}"
+    }
+               ]
+        };
+
+        function createBook(book){
+             return `
+                 <div class="col-md-3">
+                    <div class="card fixed-size-card" style="width: 18rem;">
+                        <img src="${book.image_url}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                             <h5 class="card-title">${book.title}</h5>
+                             <p class="card-text">${book.description.slice(0,60)}</p>
+                             <p><strong>Rating:</strong> ${book.rating}</p>
+                        </div>
+                    </div>
+                 </div>
+             `
+        }
+        const romanticBooksContainer = document.getElementById('romanticBooksContainer');
+        const rowElement = document.createElement('div');
+        rowElement.className = 'row';
+
+        romanticBooksData.romantic_books.forEach(book => {
+             rowElement.innerHTML += createBook(book);
+        });
+
+    romanticBooksContainer.appendChild(rowElement);
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-SRxy4FOwBLhrD1GRvIc9R7ZbCetA2TA3a1PiXy3Y4bOPa8Ex7B5r+ry2AXKSr56D" crossorigin="anonymous"></script>
+</body>
+
+</html>
